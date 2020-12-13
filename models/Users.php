@@ -20,17 +20,27 @@ class User
 
 		return $list;
 	}
+	
+    public static function insert( $request )
+    {
+        $db = Db::getInstance();
 
-	public static function find($id)
-	{
-		$db = Db::getInstance();
-		
-		$id = intval($id);
-		$req = $db->prepare('SELECT * FROM users WHERE id = :id');
-		
-		$req->execute(array('id' => $id));
-		$user = $req->fetch();
+        $return = $db->prepare( 'INSERT INTO users (username, password, id_type_user) VALUES (:username, :password, :type)' );
+        $return->bindValue( ':username', $request['username'] );
+        $return->bindValue( ':password', $request['password'] );
+        $return->bindValue( ':type', $request['type'] );
 
-		return new User($user['id'], $user['username'], $user['type_user']);
-	}
+        $return->execute();
+    }
+
+    public static function delete( $id )
+    {
+        $db = Db::getInstance();
+
+        $id = intval($id);
+
+        $return = $db->prepare( 'DELETE FROM users WHERE id = :id' );
+        $return->bindParam( ':id', $id );
+        $return->execute();
+    }
 }

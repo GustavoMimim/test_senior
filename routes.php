@@ -1,16 +1,18 @@
 <?php
-
-function call($controller, $action)
+function call( $controller, $action )
 {
-	require_once('controllers/' . $controller . '.php');
+	require_once( 'controllers/' . $controller . '.php' );
 
-	switch ($controller) {
+	switch ( $controller ) {
 		case 'users':
 			$controller = new UsersController();
 			break;
 		case 'products':
 			$controller = new ProductsController();
-			break;		
+			break;	
+		case 'sales':
+			$controller = new SalesController();
+			break;			
 	}
 
 	$controller->{$action}();
@@ -24,9 +26,16 @@ function error ($msg)
 	$erro->index($msg);
 }
 
+function redirect( $url )
+{
+   header('Location: ' . $url);
+   die();
+}
+
 $controllers = array(
-	'products' => ['index'],
-	'users' => ['index']
+	'users' => ['index', 'delete', 'insert'],
+	'products' => ['index', 'delete', 'insert'],
+	'sales' => ['index', 'delete', 'insert']
 );
 
 if (array_key_exists($controller, $controllers)) {
