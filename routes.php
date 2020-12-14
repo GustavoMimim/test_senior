@@ -35,7 +35,7 @@ function redirect( $url )
 $controllers = array(
 	'users' => ['index', 'delete', 'insert'],
 	'products' => ['index', 'delete', 'insert'],
-	'sales' => ['index', 'delete', 'insert']
+	'sales' => ['index', 'delete', 'insert', 'update', 'show']
 );
 
 if (array_key_exists($controller, $controllers)) {

@@ -1,4 +1,11 @@
-<h1>Produtos</h1>
+<div class="row align-items-center">    
+	<div class="col ">
+		<h1>Produtos</h1>
+	</div>
+	<div class="col text-end">
+        <a href="?controller=products&action=insert" class="btn btn-primary">Adicionar <i data-feather="file-plus"></i></a>
+	</div>
+</div>
 
 <table class="table">
 
@@ -28,7 +35,7 @@
                         <?php echo $product->price; ?>
                     </td>
                     <td>
-                        <a href="?controller=products&action=delete&id=<?php echo $product->id; ?>" class="btn btn-icon-primary"><i data-feather="x-square"></i></a>
+                        <a href="?controller=products&action=delete&id=<?php echo $product->id; ?>" class="btn btn-icon-danger"><i data-feather="x-square"></i></a>
                     </td>
                 <tr>
             <?php endforeach; ?>
@@ -36,5 +43,3 @@
     <?php endif; ?>
 
 </table>
-
-<a href="?controller=products&action=insert" class="btn btn-primary">Adicionar <i data-feather="file-plus"></i></a>

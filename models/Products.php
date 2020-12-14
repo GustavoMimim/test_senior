@@ -21,6 +21,16 @@ class Product
         return $list;
     }
 
+    public static function find( $id ) {
+        $db = Db::getInstance();
+        $id = intval($id);
+        $req = $db->prepare('SELECT * FROM products WHERE id = :id');
+        $req->execute(array('id' => $id));
+        $product = $req->fetch();
+
+        return new Product( $product['id'], $product['description'], $product['price'], $product['active'] );
+    }
+
     public static function insert( $request )
     {
         $db = Db::getInstance();

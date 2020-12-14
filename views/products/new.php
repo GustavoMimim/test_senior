@@ -8,6 +8,7 @@
             Por favor, adicione uma descrição.
         </div>
     </div>
+  
     <div class="mb-3">
         <label for="price" class="form-label">Preço (R$)</label>
         <input type="number" class="form-control" id="price" name="price" placeholder="..." min="0" maxlength="12" step="any" required>
@@ -15,6 +16,7 @@
             É importante adicionar um valor ao seu produto, mas se não quiser fazer isso agora, você pode confirmar colocando o valor 0 (zero).
         </div>
     </div>
+  
     <div class="mb-3 form-check">
         <input type="checkbox" class="form-check-input" id="activated" name="activated" checked>
         <label class="form-check-label" for="activated">Ativo</label>

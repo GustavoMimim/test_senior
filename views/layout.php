@@ -39,8 +39,14 @@
 		</script>
 
 		<style>
-			.btn-icon-primary:hover {
+			.btn-icon-danger:hover {
 				color: #dc3545;
+			}
+			.btn-icon-primary:hover {
+				color: #0d6efd;
+			}
+			.margin-b-20 {
+				margin-bottom: 20px;
 			}
 		</style>
 	</body>
